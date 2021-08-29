@@ -46,10 +46,13 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+q kill
 
+#interactive screenshot by pressing printscreen
+bindsym Print exec shutter 
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
- bindcode $mod+40 exec "rofi -modi drun,run -show run -theme ~/.config/rofi/dracula"
+ bindcode $mod+40 exec "rofi -modi drun,run -show run -theme ~/.config/rofi/custom"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -188,31 +191,34 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background       #F8F8F2
 
-bar {
-  font pango:DejaVu Sans Mono, PowerlineSymbols 10
-    position top
-    status_command i3status-rs ~/.config/i3status-rs/config.toml
+# Launch Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-  colors {
-    background #282A36
-    statusline #F8F8F2
-    separator  #44475A
+#bar {
+#  font pango:DejaVu Sans Mono, PowerlineSymbols 10
+#    position top
+#    status_command i3status
 
-    focused_workspace  #44475A #44475A #F8F8F2
-    active_workspace   #282A36 #44475A #F8F8F2
-    inactive_workspace #282A36 #282A36 #BFBFBF
-    urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    binding_mode       #FF5555 #FF5555 #F8F8F2
-  }
-}
+#  colors {
+#    background #282A36
+#    statusline #F8F8F2
+#    separator  #44475A
+
+#    focused_workspace  #44475A #44475A #F8F8F2
+#    active_workspace   #282A36 #44475A #F8F8F2
+#    inactive_workspace #282A36 #282A36 #BFBFBF
+#    urgent_workspace   #FF5555 #FF5555 #F8F8F2
+#    binding_mode       #FF5555 #FF5555 #F8F8F2
+#  }
+#}
 
 
 # Monitor Setup - Used arandr to generate
 exec_always xrandr --output DVI-D-0 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --mode 1920x1080 --pos 0x1080 --rotate normal --output DP-1 --off
 
 # Sets the wallpaper image
-exec_always feh --bg-fill --auto-zoom ~/Pictures/Wallpapers/dracula.png
-# exec_always compton
+ exec_always feh --bg-fill --auto-zoom ~/Pictures/Wallpapers/moody-city.jpg
+ exec_always compton 
 
 for_window [class=".*"] border pixel 0
 
@@ -222,7 +228,7 @@ smart_borders on
 # Activate smart borders (only when there are effectively no gaps)
 smart_borders no_gaps
 
-gaps inner 10
+gaps inner 8
 gaps outer 0
 smart_gaps on
 
@@ -230,4 +236,4 @@ smart_gaps on
 hide_edge_borders smart_no_gaps
 
 # Initialize opacity
-# exec_always compton --active-opacity 0.93 --inactive-opacity 0.85
+# exec_always compton --active-opacity 1.0 --inactive-opacity 0.85
