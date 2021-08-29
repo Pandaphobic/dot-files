@@ -1,4 +1,4 @@
 # My Dot Files
 My dot files for the below theme (very much in progress)
 
-![Selection_002](https://user-images.githubusercontent.com/11794877/131264395-b108660f-ee1f-4bd7-8550-5bbafd72cfcf.png)
+![Selection_003](https://user-images.githubusercontent.com/11794877/131269605-e1ed8c03-bc08-4572-960c-e6c84b42f7ba.png)
